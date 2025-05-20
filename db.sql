@@ -39,9 +39,9 @@ CREATE TABLE SALARY (
 -- ('ADMS', 'Administration Staff');
 
 
-INSERT INTO SALARY (EmployeeNumber, Month, GrossSalary, TotalDeduction, NetSalary) VALUES
-('1', 'January', 300000, 20000, 280000),  
-('2', 'January', 200000, 5000, 195000),    
-('3', 'January', 450000, 40000, 410000),
-('4', 'January', 600000, 70000, 530000);
+-- INSERT INTO SALARY (EmployeeNumber, Month, GrossSalary, TotalDeduction, NetSalary) VALUES
+-- ('1', 'January', 300000, 20000, 280000),  
+-- ('2', 'January', 200000, 5000, 195000),    
+-- ('3', 'January', 450000, 40000, 410000),
+-- ('4', 'January', 600000, 70000, 530000);
 

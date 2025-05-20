@@ -17,14 +17,15 @@ router.post('/register', async (req, res) => {
 // Login route
 router.post('/login', (req, res) => {
   const { UserName, Password } = req.body;
-  db.query('SELECT * FROM USER WHERE UserName=?', [UserName], async (err, results) => {
-    if (err || results.length === 0) return res.status(401).json({ error: "Invalid credentials" });
-    const user = results[0];
-    const match = await bcrypt.compare(Password, user.Password);
-    if (!match) return res.status(401).json({ error: "Invalid credentials" });
-  req.session.user = { id: user.id, UserName: user.UserName };
-    res.json({ message: "Login successful", user: req.session.user });
-  });
+
+db.query('INSERT INTO USER (UserName, Password) VALUES (?, ?)', [UserName, hash], (err) => {
+  if (err) {
+    console.error(err); // Add this line
+    return res.status(500).json({ error: "User already exists or DB error" });
+  }
+  res.json({ message: "User registered" });
+});
+
 });
 
 // Logout route
